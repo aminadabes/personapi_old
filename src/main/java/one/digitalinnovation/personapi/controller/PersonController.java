@@ -22,14 +22,15 @@ public class PersonController {
         this.personService = personService;
     }
 
-    @GetMapping
-    public List<Person> listPersons(){
-        return personService.listPersons();
-    }
-
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
     public MessageResponseDTO createPerson(@RequestBody @Valid PersonDTO personDTO) {
         return personService.createPerson(personDTO);
     }
+
+    @GetMapping
+    public List<PersonDTO> listPerson(){
+        return personService.listPerson();
+    }
+
 }
